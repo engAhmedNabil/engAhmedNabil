@@ -51,6 +51,10 @@ def main():
     Vintage=st.slider('Number of Days that associat with the company ', min_value=10, max_value=299, value=50,step=1)
     if st.button('predict'):
         results= prediction(Gender, Age, Driving_License,Region_Code, Previously_Insured, Vehicle_Age,Vehicle_Damage,Annual_Premium,Policy_Sales_Channel,Vintage)
-        st.text(f"Is you interest Vehicle_Insurance : {int(results)}")   
+        if results == 1:
+            results_str = 'Yes'
+        else:
+            results_str = 'No'
+        st.text(f"Is your interest in Vehicle Insurance: {results_str}")   
 if __name__ == '__main__':
     main()
